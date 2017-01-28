@@ -26,7 +26,7 @@ Vagrant.configure("2") do |config|
     rsync__verbose: true,
     rsync__exclude: ".ssh/"
 
- # config.vm.synced_folder "$NETWORKDRIVEDIR", "#where too?"
+  config.vm.synced_folder "$NETWORKDRIVEDIR", "/home/.private_share"
 
 #####
 # Run ~/.bash_profile initialization script
