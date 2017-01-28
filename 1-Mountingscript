@@ -15,11 +15,13 @@ fi
 #####
 # Attempt to mount drive multiple times
 #####
-for i in {0..10}
+for i in {0..100}
 do
     mount -t smbfs smb://srv008/Students/`whoami` $NETWORKDRIVEDIR
     if [ `echo $?` -eq 0 ]; then
         break
     fi
-    sleep 5
+    echo "Sometimes the network doesn't work (._.)"
+    echo "Try restarting or use another mac? ¯\_(ツ)_/¯"
+    sleep 10
 done

@@ -2,6 +2,7 @@
 # Script creates new Vagrantfile with correct specifications
 #####
 source config
+
 #####
 # Remove and create new file with selected box
 #####
@@ -20,7 +21,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/trusty64"
 
 #####
-# Sync to and from network folder
+# Sync to and from network drive
 #####
   config.vm.synced_folder "$NETWORKDRIVEDIR", "/home/vagrant", type: "rsync",
     rsync__verbose: true,
@@ -31,7 +32,6 @@ Vagrant.configure("2") do |config|
 #####
 # Run ~/.bash_profile initialization script
 #####
-
   config.vm.provision "shell", path: "3-OnProvision"
 end
 EOF

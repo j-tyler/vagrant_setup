@@ -1,6 +1,7 @@
 #!/bin/bash
 # Script executes every time you provision your box
 #####
+
 #####
 # Commands that you'd like run when the machine boots:
 #####
@@ -18,16 +19,16 @@ touch /home/vagrant/.bash_profile
 
 cat <<EOF >/home/vagrant/.bash_profile
 #####
-# Everything below until EOF will be your environment configuration on ssh!
+# Everything below until EOF will be your environment configuration!
 # Include aliases, functions, PS1 variables, etc here.
 #####
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 
-PS1='\u @\w $'
+PS1='\u @ \w $'
 
 betty () {
-	echo "hmmm this could be pretty useful..."
+    echo "hmmm this could be pretty useful..."
 }
 
 # and so on and so on...
@@ -41,7 +42,7 @@ betty () {
 # Do not touch unless you know what your doing! 
 #####
 executeOnExit() {
-     touch /vagrant/weexited
+    nohup rsync -vra --exclude=".ssh" /home/vagrant /home/.private_share & > /dev/null
 }
 trap executeOnExit EXIT
 EOF
