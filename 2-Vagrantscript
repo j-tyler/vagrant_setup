@@ -1,0 +1,37 @@
+#!/bin/bash
+# Script creates new Vagrantfile with correct specifications
+#####
+source config
+#####
+# Remove and create new file with selected box
+#####
+rm -f Vagrantfile
+touch Vagrantfile
+
+#####
+# Create a custom Vagrantfile with our settings
+# Everything from cat <<EOF to EOF goes into Vagrantfile
+#####
+cat <<EOF > ./Vagrantfile
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/trusty64"
+
+#####
+# Sync to and from network folder
+#####
+  config.vm.synced_folder "$NETWORKDRIVEDIR", "/home/vagrant", type: "rsync",
+    rsync__verbose: true,
+    rsync__exclude: ".ssh/"
+
+ # config.vm.synced_folder "$NETWORKDRIVEDIR", "#where too?"
+
+#####
+# Run ~/.bash_profile initialization script
+#####
+
+  config.vm.provision "shell", path: "3-OnProvision"
+end
+EOF

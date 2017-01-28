@@ -1,0 +1,47 @@
+#!/bin/bash
+# Script executes every time you provision your box
+#####
+#####
+# Commands that you'd like run when the machine boots:
+#####
+sudo apt-get -y update
+sudo apt-get -y install git
+sudo apt-get -y install emacs
+
+#... and so on 
+
+
+
+
+rm -f /home/vagrant/.bash_profile
+touch /home/vagrant/.bash_profile
+
+cat <<EOF >/home/vagrant/.bash_profile
+#####
+# Everything below until EOF will be your environment configuration on ssh!
+# Include aliases, functions, PS1 variables, etc here.
+#####
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+
+PS1='\u @\w $'
+
+betty () {
+	echo "hmmm this could be pretty useful..."
+}
+
+# and so on and so on...
+
+
+
+
+
+#####
+# This function will resync your files to the network drive on exit.
+# Do not touch unless you know what your doing! 
+#####
+executeOnExit() {
+     touch /vagrant/weexited
+}
+trap executeOnExit EXIT
+EOF
