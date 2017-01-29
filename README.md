@@ -5,7 +5,7 @@
 #### Setup:
 1) Clone the repository to your computer or Fork it to your github.
 
-2) Edit 3-OnProvision to add any new commands you'd like executed when you event your box.
+2) Edit 3-OnProvision to add any new commands you'd like executed when you enter your box.
 
 #### Usage:
 ```
