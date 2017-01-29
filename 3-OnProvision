@@ -16,9 +16,6 @@ sudo apt-get -y install emacs
 
 
 
-rm -f /home/vagrant/.bash_profile
-touch /home/vagrant/.bash_profile
-
 cat <<EOF >/home/vagrant/.bash_profile
 ####################
 ####################
