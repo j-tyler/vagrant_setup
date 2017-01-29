@@ -18,6 +18,7 @@ Found something neat? Think you can improve the system?
 Fork the repository and send a pull requests. We are always open to ideas!
 
 Maintained by:
+
 *Justin Marsh* - [Github](https://github.com/j-tyler) || [Twitter](https://twitter.com/dogonthecircuit)
 
 *Tim Britton* - [Github](https://github.com/wintermanc3r) || [Twitter](https://twitter.com/wintermanc3r)
