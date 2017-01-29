@@ -1,8 +1,6 @@
 #!/bin/bash
 # Script executes every time you provision your box
 ####################
-
-####################
 ####################
 # Commands that you'd like run when the machine boots:
 ####################
