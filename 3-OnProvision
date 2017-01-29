@@ -17,7 +17,7 @@ sudo apt-get -y install emacs
 cat <<EOF >/home/vagrant/.bash_profile
 ####################
 ####################
-# Everything below until EOF will be your environment configuration!
+# Everything below until EOF will be your environment configuration.
 # Include aliases, functions, PS1 variables, etc here.
 ####################
 alias ls='ls --color=auto'
