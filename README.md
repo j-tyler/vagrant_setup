@@ -1,6 +1,6 @@
 <img src="https://www.holbertonschool.com/assets/holberton-logo-1cc451260ca3cd297def53f2250a9794810667c7ca7b5fa5879a569a457bf16f.png" alt="Holberton logo">
 
-**Save, Sync, and Configure your Vagrant across the network**
+### Save, Sync, and Configure your Vagrant across the network
 
 #### Setup:
 1) Clone the repository to your computer or Fork it to your github.
