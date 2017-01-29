@@ -7,9 +7,9 @@
 2) Edit 3-OnProvision to add any new commands you'd like executed when you event your box.
 
 #### Usage:
-"""
+```
 ./launch
-"""
+```
 Will mount your network drive, set up syncing, load your vagrant and ssh in.
 Magic!
 
