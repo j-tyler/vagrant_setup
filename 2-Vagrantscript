@@ -1,37 +1,38 @@
 #!/bin/bash
 # Script creates new Vagrantfile with correct specifications
-#####
-source config
-
-#####
-# Remove and create new file with selected box
-#####
+####################
+####################
+# Remove and create new file
+####################
 rm -f Vagrantfile
 touch Vagrantfile
 
-#####
+####################
+####################
 # Create a custom Vagrantfile with our settings
 # Everything from cat <<EOF to EOF goes into Vagrantfile
-#####
+####################
 cat <<EOF > ./Vagrantfile
 # -*- mode: ruby -*-
-# vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/trusty64"
 
-#####
-# Sync to and from network drive
-#####
-  config.vm.synced_folder "$NETWORKDRIVEDIR", "/home/vagrant", type: "rsync",
+####################
+####################
+# Sync and mount network drive into vagrant box
+####################
+  config.vm.synced_folder "/Users/`whoami`/network_drive", "/home/vagrant", type: "rsync",
     rsync__verbose: true,
     rsync__exclude: ".ssh/"
 
-  config.vm.synced_folder "$NETWORKDRIVEDIR", "/home/.private_share"
+  config.vm.synced_folder "/Users/`whoami`/network_drive", "/home/.private_share"
 
-#####
-# Run ~/.bash_profile initialization script
-#####
+####################
+####################
+# Run intialization script to set up ~/.bash_profile
+# Executes on vagrant up and/or vagrant provision
+####################
   config.vm.provision "shell", path: "3-OnProvision"
 end
 EOF

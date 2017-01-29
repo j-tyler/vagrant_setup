@@ -1,27 +1,33 @@
 #!/bin/bash
 # Mounting Script for connecting to the Network_Drive	
-#####
-# Load config files
-#####
-source config
-
-#####
+####################
+####################
 # Create folder if it doesn't exist
-#####
-if [ ! -d $NETWORKDRIVEDIR ]; then
-    mkdir $NETWORKDRIVEDIR
+####################
+if [ ! -d /Users/`whoami`/network_drive ]; then
+    mkdir /Users/`whoami`/network_drive
 fi
 
-#####
+####################
+####################
 # Attempt to mount drive multiple times
-#####
+####################
 for i in {0..100}
 do
-    mount -t smbfs smb://srv008/Students/`whoami` $NETWORKDRIVEDIR
+    echo "Mounting network drive to /Users/`whoami`/network_drive..."
+    mount -t smbfs smb://srv008/Students/`whoami` /Users/`whoami`/network_drive
     if [ `echo $?` -eq 0 ]; then
+        break
+    fi
+    mount -t smbfs smb://srv008/Students/`whoami` /Users/`whoami`/network_drive
+    if [ `echo $?` -eq 64 ]; then
+	echo "File Exists is OK! That means your drive is mounted."
         break
     fi
     echo "Sometimes the network doesn't work (._.)"
     echo "Try restarting or use another mac? ¯\_(ツ)_/¯"
+    echo "If you need to use this specific machine, just run:"
+    echo "./2-Vagrantscript && vagrant up && vagrant ssh"
+    echo "FAIR WARINING: your files will not correctly sync! (use github!)"
     sleep 10
 done

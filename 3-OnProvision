@@ -1,10 +1,11 @@
 #!/bin/bash
 # Script executes every time you provision your box
-#####
+####################
 
-#####
+####################
+####################
 # Commands that you'd like run when the machine boots:
-#####
+####################
 sudo apt-get -y update
 sudo apt-get -y install git
 sudo apt-get -y install emacs
@@ -14,14 +15,16 @@ sudo apt-get -y install emacs
 
 
 
+
 rm -f /home/vagrant/.bash_profile
 touch /home/vagrant/.bash_profile
 
 cat <<EOF >/home/vagrant/.bash_profile
-#####
+####################
+####################
 # Everything below until EOF will be your environment configuration!
 # Include aliases, functions, PS1 variables, etc here.
-#####
+####################
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 
@@ -36,13 +39,13 @@ betty () {
 
 
 
-
-#####
+####################
+####################
 # This function will resync your files to the network drive on exit.
 # Do not touch unless you know what your doing! 
-#####
+####################
 executeOnExit() {
-    nohup rsync -vra --exclude=".ssh" /home/vagrant /home/.private_share & > /dev/null
+    nohup rsync -vra --exclude=".ssh" /home/vagrant/ /home/.private_share & 2> /dev/null
 }
 trap executeOnExit EXIT
 EOF
