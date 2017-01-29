@@ -1,4 +1,4 @@
 #!/bin/bash
 ./1-Mountingscript &&
 ./2-Vagrantscript &&
-vagrant up && vagrant ssh
+vagrant provision && vagrant up && vagrant ssh
