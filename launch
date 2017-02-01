@@ -1,4 +1,0 @@
-#!/bin/bash
-./1-MountNetworkDrive &&
-./2-VagrantSetup &&
-vagrant provision && vagrant up && vagrant ssh
