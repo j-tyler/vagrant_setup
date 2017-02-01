@@ -3,13 +3,13 @@
 ### Save, Sync, and Configure your Vagrant across the network
 
 #### Setup:
-1) Clone the repository to your computer or Fork it to your github.
+1) Fork the repository to your github.
 
-2) Edit 3-OnProvision to add any new commands you'd like executed when you enter your box.
+2) Edit 3-RunOnProvision to add any new commands you'd like executed when you enter your box.
 
 #### Usage:
 ```
-./launch
+./launch_vagrant
 ```
 Will mount your network drive, set up syncing, load your vagrant and ssh in.
 Magic!
