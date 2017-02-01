@@ -5,12 +5,13 @@
 #### Setup:
 1) Fork the repository to your github.
 
-2) Edit 3-RunOnProvision to add any new commands you'd like executed when you enter your box.
+2) Edit 2-RunOnProvision to add any new commands you'd like executed when you enter your box.
 
 #### Usage:
 ```
-./launch_vagrant
+./launch_environment
 ```
+
 Will mount your network drive, set up syncing, load your vagrant and ssh in.
 Magic!
 
