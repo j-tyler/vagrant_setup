@@ -17,7 +17,7 @@ Vagrant.configure("2") do |config|
 ####################
   config.vm.synced_folder "/Users/`whoami`/network_drive", "/home/vagrant", type: "rsync",
     rsync__verbose: true,
-    rsync__exclude: ".ssh/"
+    rsync__exclude: [".ssh/", ".bashrc"]
 
   config.vm.synced_folder "/Users/`whoami`/network_drive", "/home/.private_share"
 
