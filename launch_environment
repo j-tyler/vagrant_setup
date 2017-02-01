@@ -39,12 +39,12 @@ rm -rf /Users/`whoami`/vagrant_synced
 ###
 ## Pull a fresh copy either from USER specified, or from master branch
 ###
-git clone https://github.com/$1/vagrant_setup /Users/`whoami`/vagrant_synced 2> /dev/null ||
+git clone https://anon:anon@github.com/$1/vagrant_setup /Users/`whoami`/vagrant_synced 2> /dev/null ||
 { echo "######################################################" &&
 echo "Github USERNAME not given, cloning a basic master copy" &&
 echo "Usage: ./launch_vagrant USERNAME" &&
 echo "######################################################" &&
-git clone https://github.com/j-tyler/vagrant_setup /Users/`whoami`/vagrant_synced 2> /dev/null; }
+git clone https://anon:anon@github.com/j-tyler/vagrant_setup /Users/`whoami`/vagrant_synced 2> /dev/null; }
 
 /Users/`whoami`/vagrant_synced/1-VagrantSetup 
 export VAGRANT_CWD=/Users/`whoami`/vagrant_synced/
