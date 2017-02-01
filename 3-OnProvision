@@ -15,6 +15,8 @@ sudo apt-get -y install emacs
 
 
 cat <<EOF >/home/vagrant/.bash_profile
+source /home/vagrant/.bash_on_exit
+source /home/vagrant/.bashrc
 ####################
 ####################
 # Everything below until EOF will be your environment configuration.
@@ -34,6 +36,9 @@ betty () {
 
 
 
+
+EOF
+cat <<EOF >/home/vagrant/.bash_on_exit
 ####################
 ####################
 # This function will resync your files to the network drive on exit.
