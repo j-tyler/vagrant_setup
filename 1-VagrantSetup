@@ -26,6 +26,6 @@ Vagrant.configure("2") do |config|
 # Run intialization script to set up ~/.bash_profile
 # Executes on vagrant up and/or vagrant provision
 ####################
-  config.vm.provision "shell", path: "4-RunOnProvision"
+  config.vm.provision "shell", path: "2-RunOnProvision"
 end
 EOF

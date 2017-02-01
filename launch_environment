@@ -1,17 +1,16 @@
 #!/bin/bash
-# Mounting Script for connecting to the Network_Drive
-####################
-####################
-# Create folder if it doesn't exist
-####################
+## Mounting Script for connecting to the Network_Drive
+###
+###
+## Create folder if it doesn't exist
+###
 if [ ! -d /Users/`whoami`/network_drive ]; then
     mkdir /Users/`whoami`/network_drive
 fi
 
-####################
-####################
-# Attempt to mount drive multiple times
-####################
+###
+## Attempt to mount drive multiple times
+###
 for i in {0..100}
 do
     echo "Mounting network drive to /Users/`whoami`/network_drive..."
@@ -47,6 +46,6 @@ echo "Usage: ./launch_vagrant USERNAME" &&
 echo "######################################################" &&
 git clone https://github.com/j-tyler/vagrant_setup /Users/`whoami`/vagrant_synced 2> /dev/null; }
 
-/Users/`whoami`/vagrant_synced/3-VagrantSetup 
+/Users/`whoami`/vagrant_synced/1-VagrantSetup 
 export VAGRANT_CWD=/Users/`whoami`/vagrant_synced/
 vagrant provision && vagrant up && vagrant ssh 
