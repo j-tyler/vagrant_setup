@@ -48,5 +48,5 @@ echo "######################################################" &&
 git clone https://github.com/j-tyler/vagrant_setup /Users/`whoami`/vagrant_synced 2> /dev/null; }
 
 /Users/`whoami`/vagrant_synced/3-VagrantSetup 
-VAGRANT_CWD=/Users/`whoami`/vagrant_synced/
+export VAGRANT_CWD=/Users/`whoami`/vagrant_synced/
 vagrant provision && vagrant up && vagrant ssh 
