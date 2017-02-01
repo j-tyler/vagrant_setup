@@ -9,7 +9,7 @@
 
 #### Usage:
 ```
-./launch_environment
+./launch_environment <GITHUB USERNAME>
 ```
 
 Will mount your network drive, set up syncing, load your vagrant and ssh in.
