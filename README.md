@@ -15,6 +15,8 @@ This means you can have a persistent enviornement across all iMacs!
 
 2) Edit 2-RunOnProvision to add any new commands you'd like executed when you enter your box.
 
+3) Execute the script on your local machine.
+
 #### Usage:
 ```
 ./StudentEnv.sh <GITHUB USERNAME>
