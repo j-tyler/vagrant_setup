@@ -24,7 +24,7 @@ source /home/vagrant/.bashrc
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 
-PS1='\u @ \w $'
+PS1='\u @ \w $ '
 
 betty () {
     echo "hmmm this could be pretty useful..."
@@ -39,10 +39,23 @@ betty () {
 
 
 EOF
+
+###
+## Alternatively, if you need to use $VARIABLES in your .bash_profile, you 
+## can append in lines using the echo command
+###
+echo 'tabstospaces() {' >> .bash_profile
+echo 'find . -name "*.$1" ! -type d -exec bash -c "ex -c ":%s/\t/    /g" -c ":wq" "$0"" {} \;' >> .bash_profile
+echo '}' >> .bash_profile
+# This replaces all leading tabs with spaces in files specified.
+
+
+
+
 cat <<EOF >/home/vagrant/.bash_on_exit
 ###
-# This function will resync your files to the network drive on exit.
-# Do not touch unless you know what your doing! 
+## This function will resync your files to the network drive on exit.
+## Do not touch unless you know what your doing! 
 ###
 executeOnExit() {
     nohup rsync -vra --exclude=".ssh" /home/vagrant/ /home/.private_share & 2> /dev/null
