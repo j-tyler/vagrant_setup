@@ -2,6 +2,14 @@
 
 ### Save, Sync, and Configure your Vagrant across the network
 
+#### What does this script do?
+This script links your school network drive to your vagrant box.
+Every time you log into your vagrant box via this script, your
+files from the network will sync to your vagrant box and be available.
+On logout, your files will sync back to the network drive.
+
+This means you can have a persistent enviornement across all iMacs!
+
 #### Setup:
 1) Fork the repository to your github.
 
@@ -9,11 +17,15 @@
 
 #### Usage:
 ```
-./launch_environment <GITHUB USERNAME>
+./StudentEnv.sh <GITHUB USERNAME>
 ```
 
-Will mount your network drive, set up syncing, load your vagrant and ssh in.
-Magic!
+If you give your github username as the first argument, your the script
+will search your github for a personalized copy. This lets you set the
+script to make your programming environment exactly as you wish.
+
+In total, it will mount your network drive, set up network syncing,
+load your vagrant and ssh in.  Magic!
 
 #### Contribute:
 Found something neat? Think you can improve the system?
