@@ -37,6 +37,10 @@ This script will create the following directories:
 2) ~/vagrant_synced - This is your vagrant box that is synced to your network drive
 
 
+### Future Features:
+It is possible to mirror your laptop settings across the network as well. This script currently doesn't handle this, but maybe soon it will? :)
+
+
 
 #### Contribute:
 Found something neat? Think you can improve the system?
