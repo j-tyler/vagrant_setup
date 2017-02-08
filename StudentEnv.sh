@@ -4,8 +4,10 @@
 ###
 ## Create folder if it doesn't exist
 ###
-if [ ! -d /Users/`whoami`/network_drive ]; then
-    mkdir /Users/`whoami`/network_drive
+user="$(whoami)"
+
+if [ ! -d /Users/"$user"/network_drive ]; then
+    mkdir /Users/"$user"/network_drive
 fi
 
 ###
@@ -13,12 +15,12 @@ fi
 ###
 for i in {0..100}
 do
-    echo "Mounting network drive to /Users/`whoami`/network_drive..."
-    mount -t smbfs smb://srv008/Students/`whoami` /Users/`whoami`/network_drive
+    echo "Mounting network drive to /Users/$user/network_drive..."
+    mount -t smbfs smb://srv008/Students/"$user" /Users/"$user"/network_drive
     if [ `echo $?` -eq 0 ]; then
         break
     fi
-    mount -t smbfs smb://srv008/Students/`whoami` /Users/`whoami`/network_drive
+    mount -t smbfs smb://srv008/Students/"$user" /Users/"$user"/network_drive
     if [ `echo $?` -eq 64 ]; then
         echo "####################################################"
         echo "File exists is OK! That means your drive is mounted."
@@ -36,18 +38,18 @@ done
 ###
 ## Remove vagrant_synced folder and pull new copy
 ###
-rm -rf /Users/`whoami`/vagrant_synced
+rm -rf /Users/"$user"/vagrant_synced
 
 ###
 ## Pull a fresh copy either from USER specified, or from master branch
 ###
-git clone https://anon:anon@github.com/$1/vagrant_setup /Users/`whoami`/vagrant_synced 2> /dev/null ||
+git clone https://anon:anon@github.com/$1/vagrant_setup /Users/"$user"/vagrant_synced 2> /dev/null ||
 { echo "################################################" &&
 echo "Github username not given, cloning a basic copy" &&
 echo "Usage: ./launch_vagrant <GITHUB USERNAME>" &&
 echo "################################################" &&
-git clone https://anon:anon@github.com/j-tyler/vagrant_setup /Users/`whoami`/vagrant_synced 2> /dev/null; }
+git clone https://anon:anon@github.com/j-tyler/vagrant_setup /Users/"$user"/vagrant_synced 2> /dev/null; }
 
-/Users/`whoami`/vagrant_synced/1-VagrantSetup 
-export VAGRANT_CWD=/Users/`whoami`/vagrant_synced/
-vagrant provision && vagrant up && vagrant ssh 
+/Users/"$user"/vagrant_synced/1-VagrantSetup
+export VAGRANT_CWD=/Users/"$user"/vagrant_synced/
+vagrant provision && vagrant up && vagrant ssh
