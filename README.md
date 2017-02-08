@@ -13,8 +13,9 @@ This means you can have a persistent environment across all iMacs!
 #### Exactly what happens:  
 1) Directory ~/network_drive is created.  
 2) Your network folder is mounted (linked) to ~/network_drive  
-3) Your Github is searched for a fork of this vagrant_setup repo.  
-4) If it is found, it clones it to ~/vagrant_setup, else it clones the main branch.  
+3) Your Github is searched for a fork of this vagrant_setup repository.  
+4) If it is found, the repository is cloned to ~/vagrant_setup,  
+5) If not found, the script clones the main branch (this one) to ~/vagrant_setup.  
 5) File ~/vagrant_setup/1-VagrantSetup is executed creating a VagrantFile  
 6) The box is launched, syncing your files from ~/network_drive into vagrant home folder.  
 7) You are ssh'ed into your box.  
