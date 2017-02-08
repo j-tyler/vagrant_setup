@@ -8,15 +8,27 @@ Every time you log into your vagrant box via this script, your
 files from the network will sync to your vagrant box and be available.
 On logout, your files will sync back to the network drive.
 
-This means you can have a persistent enviornement across all iMacs!
+This means you can have a persistent environment across all iMacs!
 
-### Setup:
-1) Fork the repository to your github.
+#### Exactly what happens:  
+1) Directory ~/network_drive is created.  
+2) Your network folder is mounted (linked) to ~/network_drive  
+3) Your Github is searched for a fork of this vagrant_setup repo.  
+4) If it is found, it clones it to ~/vagrant_setup, else it clones the main branch.  
+5) File ~/vagrant_setup/1-VagrantSetup is executed creating a VagrantFile  
+6) The box is launched, syncing your files from ~/network_drive into vagrant home folder.  
+7) You are ssh'ed into your box.  
+...  
+8) On exit from your box, your files are synced back onto the network folder.
+
+### Script setup:
+1) Fork the repository to your github.  
 
 2) Edit 2-RunOnProvision to add any new commands you'd like executed when 
    you enter your box. This will be your vagrant environment.
 
-3) Execute the script on your local machine.
+3) Execute the script on your local machine.  
+A copy of the execution script is on your iMac, in the home folder.
 
 ### Usage:
 ```
@@ -27,8 +39,6 @@ If you give your github username as the first argument, your the script
 will search your github for a personalized copy. This lets you edit the
 script to make your programming environment exactly as you wish.
 
-In total, it will mount your network drive, set up network syncing,
-load your vagrant and ssh in.  Magic!
 ### Directories Created:
 This script will create the following directories:
 
