@@ -1,0 +1,9 @@
+- Modularize syncing function as to let user turn on/off network sync.
+  This lets the base script be used as a simple Vagrant box setup
+
+- Build Google Drive sync.  This will be much more reliable than the local
+  network drives users don't have capalibity to access or fix when broken.
+
+- Rsync is not a good tool for multi-way syncing. There is no robustness for
+  when a sync failed either to the network or from the network. This can cause
+  lost data. Not good.
